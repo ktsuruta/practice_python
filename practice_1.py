@@ -1,3 +1,4 @@
+from collections import Counter
 
 users = [
 {"id":0,"name":"Hero"},
@@ -39,3 +40,21 @@ def friends_of_friend_ibs_bad(user):
     return[foaf["id"]
         for friend in user["friends"]
         for foaf in friend["friends"]]
+
+print [friend["id"] for friend in users[0]["friends"]]
+print [friend["id"] for friend in users[1]["friends"]]
+print [friend["id"] for friend in users[2]["friends"]]
+
+def not_the_same(user, other_user):
+    return user["id"] != other_user["id"]
+
+def not_friend(user, other_user):
+    return all(not_the_same(friend, other_user)for friend in user["friends"])
+
+def friends_of_friend_ibs(user):
+    return Counter(foaf["id"] for frisnd in user["friends"]
+    for foaf in friend["friends"]
+    if not_the_same(user, foaf)
+    and not_friend(user,foaf))
+
+print(friends_of_friend_ibs(users[3]))
