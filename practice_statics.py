@@ -4,7 +4,7 @@ def random_kid():
 
 
 both_girls = 0
-older_girls = 0
+older_girl = 0
 either_girl = 0
 
 random.seed(0)
