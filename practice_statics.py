@@ -16,7 +16,6 @@ for _ in range(10000):
         older_girls += 1
     if older == "girl" and younger == "girl":
         both_girl += 1
-    if older == "girl" or younger == "girl":
         either_girl =+ 1
 
 print(both_girl)
