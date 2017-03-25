@@ -1,10 +1,23 @@
-from collections import Counter
+import random
+def random_kid():
+    return random.choice(["boy","girl"])
 
-def mode(x):
-    counts = Counter(x)
-    max_count = max(counts.values())
-    return [x_i for x_i, count in counts.iteritems() if count == max_count]
 
-a = [1,2,3,4,5,2,3,5,2,4,6,2,3,4,6,6,2,3,52,3,52,2,3,5,2,3,6]
+both_girl = 0
+older_girls = 0
+either_girl = 0
 
-print(Counter(a))
+random.seed(0)
+
+for _ in range(10000):
+    younger = random_kid()
+    older = random_kid()
+    if older == "girl":
+        older_girls += 1
+    if older == "girl" and younger == "girl":
+        both_girl += 1
+    if older == "girl" or younger == "girl":
+        either_girl =+ 1
+
+print(both_girl)
+print(older_girls)
