@@ -22,3 +22,13 @@ for _ in range(10000):
 print(both_girls)
 print(older_girl)
 print(either_girl)
+
+
+def uniform_pdf(x):
+    return 1 if x >=0 and x < 1 else 0
+
+def uniform_cdf(x):
+    "return the probability that a uniform random variable iss <=x"
+    if x < 0: return 0
+    elif x < 1: return x
+    else: return 1
